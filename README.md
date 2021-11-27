@@ -101,5 +101,6 @@ docker-compose down
 docker rmi \
     $DOCKER_USERNAME/rabbitmq-subscriber \
     $DOCKER_USERNAME/rabbitmq-publisher \
+    $DOCKER_USERNAME/rabbitmq:3.8-management \
     $DOCKER_USERNAME/rabbitmq
 ```
