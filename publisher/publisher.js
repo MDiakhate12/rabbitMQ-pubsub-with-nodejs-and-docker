@@ -4,7 +4,7 @@ const port = 3000;
 const amqp = require("amqplib/callback_api");
 
 // Conecct
-amqp.connect("amqp://localhost", (connectionError, connection) => {
+amqp.connect("amqp://rabbitmq", (connectionError, connection) => {
   if (connectionError) throw connectionError;
 
   connection.createChannel((channelError, channel) => {
@@ -28,5 +28,5 @@ amqp.connect("amqp://localhost", (connectionError, connection) => {
 });
 
 app.listen(port, () => {
-  console.log(`Publisher listening at http://localhost:${port}`);
+  console.log(`Publisher listening at http://172.18.0.9:${port}`);
 });
