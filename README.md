@@ -97,5 +97,8 @@ Available services are:
 > If you have used another registry, you must update the docker rmi command
 ```bash
 docker-compose down
-docker rmi *DOCKER_USERNAME*/rabbitmq-subscriber *DOCKER_USERNAME*/rabbitmq-producer *DOCKER_USERNAME*/rabbitmq
+docker rmi \
+    *DOCKER_USERNAME*/rabbitmq-subscriber \
+    *DOCKER_USERNAME*/rabbitmq-producer \
+    *DOCKER_USERNAME*/rabbitmq
 ```
