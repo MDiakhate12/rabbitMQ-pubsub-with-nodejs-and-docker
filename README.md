@@ -94,7 +94,7 @@ Available services are:
 3.  subscriber
 
 ### 4. Clean the environment
-> If you have used another registry, you must update the docker rmi command
+> Note: If you have used another registry, you must update the docker rmi command
 ```bash
 docker-compose down
 docker rmi \
