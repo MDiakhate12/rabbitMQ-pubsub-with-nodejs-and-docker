@@ -100,6 +100,6 @@ export DOCKER_USERNAME=*YOUR_DOCKER_ID*
 docker-compose down
 docker rmi \
     $DOCKER_USERNAME/rabbitmq-subscriber \
-    $DOCKER_USERNAME/rabbitmq-producer \
+    $DOCKER_USERNAME/rabbitmq-publisher \
     $DOCKER_USERNAME/rabbitmq
 ```
