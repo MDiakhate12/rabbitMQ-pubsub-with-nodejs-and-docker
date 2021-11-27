@@ -96,9 +96,10 @@ Available services are:
 ### 4. Clean the environment
 > Note: If you have used another registry, you must update the docker rmi command
 ```bash
+export DOCKER_USERNAME=*YOUR_DOCKER_ID*
 docker-compose down
 docker rmi \
-    *DOCKER_USERNAME*/rabbitmq-subscriber \
-    *DOCKER_USERNAME*/rabbitmq-producer \
-    *DOCKER_USERNAME*/rabbitmq
+    $DOCKER_USERNAME/rabbitmq-subscriber \
+    $DOCKER_USERNAME/rabbitmq-producer \
+    $DOCKER_USERNAME/rabbitmq
 ```
