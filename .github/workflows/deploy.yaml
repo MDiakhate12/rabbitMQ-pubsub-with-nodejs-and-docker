@@ -1,0 +1,18 @@
+name: Build docker containers
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and push publisher container
+      run: |
+        docker build -t $DOCKER_USERNAME/rabbitmq-publisher publisher/
+        docker push $DOCKER_USERNAME/rabbitmq-publisher
+    - name: Build  and push subscriber container
+      run: |
+        docker build -t $DOCKER_USERNAME/rabbitmq-subscriber subscriber/
+        docker push $DOCKER_USERNAME/rabbitmq-subscriber
+

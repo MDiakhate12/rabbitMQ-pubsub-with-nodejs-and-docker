@@ -1,0 +1,45 @@
+version: "2"
+
+networks:
+  rabbitmq-pubsub:
+    name: rabbitmq-pubsub
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/24
+          gateway: 172.18.0.1
+
+services:
+
+  rabbitmq:
+    image: docker.io/rabbitmq:3.8-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      rabbitmq-pubsub:
+        ipv4_address: 172.18.0.8
+
+  publisher:
+    image: docker.io/mdiakhate12/rabbitmq-publisher
+    container_name: publisher
+    ports:
+      - "13000:3000"
+    networks:
+      rabbitmq-pubsub:
+        ipv4_address: 172.18.0.9
+    depends_on:
+      - rabbitmq
+
+  subscriber:
+    image: docker.io/mdiakhate12/rabbitmq-subscriber
+    container_name: subscriber
+    ports:
+      - "23000:3000"
+    networks:
+      rabbitmq-pubsub:
+        ipv4_address: 172.18.0.10
+    depends_on:
+      - publisher
