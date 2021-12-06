@@ -3,7 +3,9 @@ name: Build docker containers
 on: [push]
 
 jobs:
-  build:
+  build-and-push-containers:
+    env:
+      DOCKER_USERNAME: mdiakhate12
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
