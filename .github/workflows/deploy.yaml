@@ -1,4 +1,4 @@
-name: Build docker containers
+name: Build and push docker containers
 
 on: [push]
 
@@ -19,7 +19,7 @@ jobs:
         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/rabbitmq-publisher publisher/
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/rabbitmq-publisher
 
-    - name: Build  and push subscriber container
+    - name: Build and push subscriber container
       run: |
         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/rabbitmq-subscriber subscriber/
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/rabbitmq-subscriber
